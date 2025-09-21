@@ -1,4 +1,4 @@
-name: Reusable Build & Test Workflow
+name: Common CI Workflow
 
 on:
   workflow_call:
