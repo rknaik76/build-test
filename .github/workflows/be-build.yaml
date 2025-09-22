@@ -30,6 +30,7 @@ jobs:
   backend_build:
     name: backend Build
     runs-on: ubuntu-latest
+    needs: backend_code_quality
     environment: pr-validate
     steps:
       - name: Checkout code
@@ -41,10 +42,23 @@ jobs:
   backend_unit_tests:
     name: backend Unit Tests
     runs-on: ubuntu-latest
+    needs: backend_build
     environment: pr-validate
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Install backend Dependencies
+        run: echo "Installing backend dependencies..."
+
+  upload_be_artifact:
+    name: upload Back-End Artifact
+    runs-on: ubuntu-latest
+    needs: backend_unit_tests
+    environment: pr-validate
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Upload BE Artifact
         run: echo "Installing backend dependencies..."
