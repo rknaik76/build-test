@@ -10,10 +10,6 @@ on:
         required: false
         type: string
         default: "pr-validate"
-      artifact_name:
-        required: false
-        type: string
-        default: "build-artifact"
     secrets:
       veracode_app_id:
         required: true
