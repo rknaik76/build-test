@@ -17,7 +17,7 @@ on:
 
 jobs:
   backend_linting:
-    name: Backend Code Quality
+    name: Backend Code Linting
     runs-on: ubuntu-latest
     environment: pr-validate
     steps:
@@ -62,15 +62,14 @@ jobs:
 
       - name: Install backend Dependencies
         run: echo "Installing backend dependencies..."
+#   upload_be_artifact:
+#     name: upload Back-End Artifact
+#     runs-on: ubuntu-latest
+#     environment: pr-validate
+#     needs: [backend_unit_tests, backend_veracode_scan]
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
 
-  upload_be_artifact:
-    name: upload Back-End Artifact
-    runs-on: ubuntu-latest
-    environment: pr-validate
-    needs: [backend_unit_tests, backend_veracode_scan]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Upload BE Artifact
-        run: echo "Installing backend dependencies..."
+#       - name: Upload BE Artifact
+#         run: echo "Installing backend dependencies..."
