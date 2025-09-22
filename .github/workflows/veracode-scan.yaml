@@ -1,0 +1,40 @@
+name: Veracode Scan
+
+on:
+  workflow_call:
+    inputs:
+      target_branch:
+        required: true
+        type: string
+      environment:
+        required: false
+        type: string
+        default: "pr-validate"
+      veracode_app_id:
+        required: true
+        type: string
+        default: "pr-validate"
+      veracode_app_name:
+        required: true
+        default: "pr-validate"
+        type: string
+      veracode_api_key_id:
+        required: true
+        type: string
+        default: "pr-validate"
+      veracode_api_key_secret:
+        required: true
+        type: string
+        default: "pr-validate"
+
+jobs:
+  veracode_scan:
+    name: Veracode scan
+    runs-on: ubuntu-latest
+    environment: pr-validate
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Veracode scan
+        run: echo "Veracode scan"

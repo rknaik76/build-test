@@ -1,0 +1,46 @@
+name: Build Back-End
+
+on:
+  workflow_call:
+    inputs:
+      target_branch:
+        required: true
+        type: string
+      environment:
+        required: false
+        type: string
+        default: "pr-validate"
+
+jobs:
+  backend_code_quality:
+    name: Backend Code Quality
+    runs-on: ubuntu-latest
+    environment: pr-validate
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Backend Dependencies
+        run: echo "Installing backend dependencies..."
+
+  backend_build:
+    name: backend Build
+    runs-on: ubuntu-latest
+    environment: pr-validate
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install backend Dependencies
+        run: echo "Installing backend dependencies..."
+
+  backend_unit_tests:
+    name: backend Unit Tests
+    runs-on: ubuntu-latest
+    environment: pr-validate
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install backend Dependencies
+        run: echo "Installing backend dependencies..."

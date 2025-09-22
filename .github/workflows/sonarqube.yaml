@@ -1,0 +1,36 @@
+name: Veracode Scan
+
+on:
+  workflow_call:
+    inputs:
+      target_branch:
+        required: true
+        type: string
+      environment:
+        required: false
+        type: string
+        default: "pr-validate"
+      scan_type:
+        required: false
+        type: string
+        default: "lite" # lite or heavy
+      sonar_project_key:
+        required: true
+        type: string
+        default: "pr-validate"
+      sonar_organization:
+        required: true
+        type: string
+        default: "pr-validate"
+
+jobs:
+  sonarqube_scan:
+    name: Sonatqube scan
+    runs-on: ubuntu-latest
+    environment: pr-validate
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Sonarqube scan
+        run: echo "Sonarqube scan"
