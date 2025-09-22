@@ -7,11 +7,11 @@ on:
         required: true
         type: string
       environment:
-        required: false
+        required: true
         type: string
         default: "pr-validate"
       artifact_name:
-        required: false
+        required: true
         type: string
         default: "build-artifact"
 
