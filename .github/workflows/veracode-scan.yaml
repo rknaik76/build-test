@@ -10,22 +10,15 @@ on:
         required: false
         type: string
         default: "pr-validate"
+    secrets:
       veracode_app_id:
         required: true
-        type: string
-        default: "pr-validate"
       veracode_app_name:
         required: true
-        default: "pr-validate"
-        type: string
       veracode_api_key_id:
         required: true
-        type: string
-        default: "pr-validate"
       veracode_api_key_secret:
         required: true
-        type: string
-        default: "pr-validate"
 
 jobs:
   veracode_scan:

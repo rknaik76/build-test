@@ -1,4 +1,4 @@
-name: Veracode Scan
+name: SonarQube Scan
 
 on:
   workflow_call:
@@ -14,14 +14,11 @@ on:
         required: false
         type: string
         default: "lite" # lite or heavy
+    secrets:
       sonar_project_key:
         required: true
-        type: string
-        default: "pr-validate"
       sonar_organization:
         required: true
-        type: string
-        default: "pr-validate"
 
 jobs:
   sonarqube_scan:
